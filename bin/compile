@@ -2,13 +2,15 @@
 # bin/compile <build-dir> <cache-dir>
 
 # Fail immediately on non-zero exit code.
-set -e
+set -o errexit
 # Fail immediately on non-zero exit code within a pipeline.
 set -o pipefail
 # Fail on undeclared variables.
-set -u
+set -o nounset
 # Debug, echo every command
-#set -x
+set -o errtrace
+set -o verbose
+set -o xtrace
 
 function indent() {
   c='s/^/       /'
